@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+
 from http.server import BaseHTTPRequestHandler, HTTPServer
 from urllib.parse import urlparse, parse_qs
 import json
@@ -6,20 +6,7 @@ import sqlite3
 import uuid
 import os
 from argon2 import PasswordHasher
-from cryptography.hazmat.primitives import serialization
-from cryptography.hazmat.primitives.asymmetric import rsa
-from cryptography.hazmat.backends import default_backend
-from cryptography.hazmat.backends import default_backend
-from cryptography.hazmat.primitives import hashes
-from cryptography.hazmat.primitives.ciphers import Cipher, algorithms, modes
 import time
-import secrets
-from cryptography import x509
-from cryptography.x509.oid import NameOID
-from datetime import datetime, timedelta
-
-
-
 
 hostName = "localhost"
 serverPort = 8080
@@ -67,7 +54,7 @@ ph = PasswordHasher()
 encryption_key = os.environ.get('ee06bb4dd5f54ba790560846b37ef5d3292662ca44302ada2d7279f776c150fe')
 
 class TokenBucket:
-    
+
     def __init__(self, capacity, fill_rate):
         self.capacity = float(capacity)
         self.tokens = float(capacity)
